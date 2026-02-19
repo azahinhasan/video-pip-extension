@@ -94,30 +94,11 @@ This extension:
 - The button only appears when a video is actively playing
 - Try playing the video first
 
-## Development
+## Preview
 
-### File Structure
-```
-video-pip-extension/
-├── manifest.json       # Extension configuration
-├── popup.html         # Extension popup interface
-├── popup.js          # Popup functionality
-├── content.js        # Content script for video detection
-├── icons/            # Extension icons
-│   ├── icon16.png
-│   ├── icon48.png
-│   └── icon128.png
-└── README.md         # This file
-```
+<img width="425" height="239" alt="Screenshot 2026-02-19 113240" src="https://github.com/user-attachments/assets/c7659236-c6cd-4737-aff2-6980797d4fcb" />
 
-### Customization
-
-You can customize the floating button position by editing `content.js`:
-```javascript
-// Change button position (line ~7-8)
-bottom: 20px;  // Distance from bottom
-right: 20px;   // Distance from right
-```
+<video width="425" height="239" src="https://github.com/user-attachments/assets/7f48502c-7d2f-4fe7-afc7-658da9cad778" controls></video>
 
 ## License
 
