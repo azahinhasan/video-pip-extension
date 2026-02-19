@@ -7,31 +7,34 @@
   <style>
     body {
       width: 300px;
-      padding: 20px;
+      padding: 10px;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       margin: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: linear-gradient(135deg, #667eea 0%, #014f79 100%);
       color: white;
+      border-radius: 100px;
     }
     
     h2 {
       margin: 0 0 15px 0;
       font-size: 18px;
       font-weight: 600;
+      text-align: center;
     }
     
     button {
-      width: 100%;
+      width: 90%;
       padding: 12px;
-      margin: 8px 0;
+      margin: 8px auto;
       border: none;
       border-radius: 8px;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
       background: white;
       color: #667eea;
+      display: block;
     }
     
     button:hover {
@@ -58,15 +61,23 @@
     }
     
     .icon {
-      font-size: 40px;
       text-align: center;
       margin-bottom: 10px;
+    }
+    
+    .icon img {
+      width: 48px;
+      height: 48px;
+    }
+    
+    h2 {
+      text-align: center;
     }
     
   </style>
 </head>
 <body>
-  <div class="icon">🎬</div>
+  <div class="icon"><img src="icons/icon48.png" alt="Video PiP Icon"></div>
   <h2>Video Picture-in-Picture</h2>
   <button id="pipBtn">Enable PiP Mode</button>
   <div id="status"></div>

@@ -13,8 +13,8 @@ document.getElementById('pipBtn').addEventListener('click', async () => {
     statusDiv.className = 'show';
     
     setTimeout(() => {
-      statusDiv.className = '';
-    }, 2000);
+      window.close();
+    }, 500);
     
   } catch (error) {
     statusDiv.textContent = '✗ Error: ' + error.message;
