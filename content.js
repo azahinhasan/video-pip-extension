@@ -1,3 +1,31 @@
+let currentPiPVideo = null;
+
+// Add keyboard event listener for arrow key controls
+document.addEventListener('keydown', (e) => {
+  if (!currentPiPVideo || !document.pictureInPictureElement) return;
+  
+  // Left arrow: seek backward 5 seconds
+  if (e.key === 'ArrowLeft') {
+    e.preventDefault();
+    currentPiPVideo.currentTime = Math.max(0, currentPiPVideo.currentTime - 5);
+  }
+  
+  // Right arrow: seek forward 5 seconds
+  if (e.key === 'ArrowRight') {
+    e.preventDefault();
+    currentPiPVideo.currentTime = Math.min(currentPiPVideo.duration, currentPiPVideo.currentTime + 5);
+  }
+  
+  // Space: play/pause
+  if (e.key === ' ' || e.code === 'Space') {
+    e.preventDefault();
+    if (currentPiPVideo.paused) {
+      currentPiPVideo.play();
+    } else {
+      currentPiPVideo.pause();
+    }
+  }
+});
 
 function activatePiP() {
   const videos = document.querySelectorAll('video');
@@ -26,13 +54,21 @@ function activatePiP() {
         console.error('Error exiting PiP:', err);
       });
     } else {
+      currentPiPVideo = playingVideo;
+      
       playingVideo.requestPictureInPicture()
         .then(() => {
           showNotification('PiP mode activated!', 'success');
         })
         .catch(error => {
           showNotification('Could not enable PiP: ' + error.message, 'error');
+          currentPiPVideo = null;
         });
+      
+      // Clear reference when PiP is exited
+      playingVideo.addEventListener('leavepictureinpicture', () => {
+        currentPiPVideo = null;
+      }, { once: true });
     }
   }
 }
